@@ -1,6 +1,15 @@
 \begin{abstract}
 
-blah blah blah
-waffle waffle waffle
+The ANSE project has been working with the CMS and ATLAS experiments to bring network awareness into their middleware stacks. For CMS, this means enabling control of virtual network circuits in PhEDEx, the CMS data-transfer management system. PhEDEx orchestrates the transfer of data around the CMS experiment to the tune of 1 PB per week spread over about 70 sites.
+
+The goal of ANSE is to improve the overall working efficiency of the experiments, by enabling more deterministic time to completion for a designated set of data transfers, through the use of end-to-end dynamic virtual circuits with guaranteed bandwidth.
+
+ANSE has enhanced PhEDEx, allowing it to create, use and destroy circuits according to it's own needs. PhEDEx can now decide if a circuit is worth creating based on its current workload and past transfer history, which allows circuits to be created only when they will be useful.
+
+This paper reports on the progress made by ANSE in PhEDEx. We show how PhEDEx is now capable of using virtual circuits as a production-quality service, and describe how the mechanism it uses can be refactored for use in other software domains. We present first results of transfers between CMS sites using this mechanism, and report on the stability and performance of PhEDEx when using virtual circuits.
+
+The ability to use dynamic virtual circuits for prioritised large-scale data transfers over shared global network infrastructures represents an important new capability and opens many possibilities. The experience we have gained with ANSE is being incorporated in an evolving picture of future LHC Computing Models, in which the network is considered as an explicit component.
+
+Finally, we describe the remaining work to be done by ANSE in PhEDEx, and discuss future directions for continued development.
 
 \end{abstract}
