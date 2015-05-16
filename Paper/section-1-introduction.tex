@@ -1,4 +1,9 @@
 \section{Introduction}
 
-blah blah blah
-waffle waffle waffle
+PhEDEx\cite{PhEDEx} is the data-transfer management tool for CMS. It gathers requests for data-transfer from users and from automated components of the CMS computing system, schedules the transfers at each destination site, then transfers the data in a reliable and robust manner, and reports the results back to a central database. The core architecture has changed little since PhEDEx was first put into production in 2004, before the Worldwide LHC Computing Grid (WLCG\cite{WLCG}) was operating, and the underlying assumptions that were built into its behaviour then are still present today.
+
+Chief among those assumptions was the expectation that the network would be over-subscribed and unreliable, so PhEDEx was designed to back off fast when errors happened and to retry slowly. This strategy allows time for debugging problems without congesting the network with too many transfers that are likely to fail.
+
+Since then, the network has in fact proven to be more reliable and performant than expected, and the hierarchical nature of transfers envisioned in the original CMS computing model\cite{CompModel} has been abandoned in favour of allowing transfers between any two sites that wish it\cite{T2Traffic}.
+
+As a result, CMS has begun to investigate new ways to interact with the network, with a view to making it an active component of the computing model in the future\cite{NetworkAwarenessinCMS}.The ANSE project\footnote{Funded by NSF CC-NIE program, ANSE started in January 2013. The project members are: B. Ball, A. Barczyk, J. Batista, K. De, S. McKee, A. Melo, H. Newman, A. Petrosyan, P. Sheldon, R. Voicu} has been working closely with PhEDEx since 2013 to this end, integrating network-awareness into PhEDEx by enabling it to create, use, and destroy virtual network circuits to improve transfer performance. First results have already been reported, showing that PhEDEx can now transparently switch to using a network circuit when one is available\cite{ANSE_ISGC_2014}
