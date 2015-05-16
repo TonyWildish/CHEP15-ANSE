@@ -1,0 +1,2 @@
+slide 11: "ResourceManager Interacts with FileDownload agent via direct calls". It's in
+the same process, right? Not using a dropbox mechanism or something like that?
