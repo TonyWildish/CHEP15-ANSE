@@ -16,4 +16,11 @@ The FileDownload agent is a 'site' agent, meaning that every site that wishes to
 
 The FileRouter therefore has an accurate view of the site-local network traffic. Implementing circuits here is relatively simple, and allows deployment and testing site-by-site, with consequently minimised risks in the event of problems.
 
-The only significant disadvantage to implementing circuit-control in the FileDownload agent is the lack of global oversight, with the consequence that two sites may end up competing for virtual circuits on a given link at the same time. Despite this, the ease with which circuits could be implemented in this agent was the winning factor, and the first prototype used a modified FileDownload agent to achieve its results.
+The only significant disadvantage to implementing circuit-control in the FileDownload agent is the lack of global oversight, with the consequence that two sites may end up competing for virtual circuits on a given link at the same time. Despite this, the ease with which circuits could be implemented in this agent was the winning factor, and the first prototype used a modified FileDownload agent to achieve its results (see figure~\ref{fig:combined_phedex_transfers}).
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.95\textwidth]{figure-FileDownload_All_paths}
+  \caption{View of PhEDEx transfers on a 10 Gbps link between Geneva and Amsterdam. The transfer performance on a shared path (shown in blue) is impeded by competition on the link. When a circuit becomes available on a dedicated path, PhEDEx transparently switches to using that circuit (shown in red), thereby doubling the throughput.}
+  \label{fig:combined_phedex_transfers}
+\end{figure} 
