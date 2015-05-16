@@ -14,9 +14,9 @@ For these reasons, the ANSE project decided not to implement circuit-control in 
 \subsection{Circuits in the FileDownload agent}
 The FileDownload agent is a 'site' agent, meaning that every site that wishes to download data via PhEDEx runs one or more copies of this agent. It processes the transfer queue provided by the FileRouter agent for that site, reporting the results back to the central database.
 
-The FileRouter therefore has an accurate view of the site-local network traffic. Implementing circuits here is relatively simple, and allows deployment and testing site-by-site, with consequently minimised risks in the event of problems.
+The FileRouter therefore has an accurate view of the site-local inbound network traffic. Implementing circuits here is relatively simple, and allows deployment and testing site-by-site, with consequently minimised risks in the event of problems.
 
-The only significant disadvantage to implementing circuit-control in the FileDownload agent is the lack of global oversight, with the consequence that two sites may end up competing for virtual circuits on a given link at the same time. Despite this, the ease with which circuits could be implemented in this agent was the winning factor, and the first prototype used a modified FileDownload agent to achieve its results (see figure~\ref{fig:combined_phedex_transfers}). The first prototype used the Fast Data Transfer tool\cite{FDT} for transport, and circuits constructed using On-Demand Secure Circuits and Advance Reservation System (OSCARS\cite{OSCARS}).
+The only significant disadvantage to implementing circuit-control in the FileDownload agent is the lack of global oversight, with the consequence that two sites may end up competing for virtual circuits on a given link at the same time. Despite this, the ease with which circuits could be implemented in this agent was the winning factor, and the first prototype used a modified FileDownload agent to achieve its results (see figure~\ref{fig:combined_phedex_transfers}). This prototype used the Fast Data Transfer tool\cite{FDT} for transport, with circuits constructed using On-Demand Secure Circuits and Advance Reservation System (OSCARS\cite{OSCARS}).
 
 \begin{figure}[h]
   \centering
