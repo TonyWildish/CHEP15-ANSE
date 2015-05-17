@@ -25,24 +25,3 @@ A wrapper-script runs on the data-servers at the sites, wrapping the calls to gr
 While non-trivial, this solution does not require privileged software to run on the sites data-servers, and cleanly separates the experiments from the network management layer. The use of a wrapper script to talk to the OpenFlow controllers means that the underlying transfer technology (gridFTP or whatever) does not have to be modified. It does require that OpenFlow controllers be installed at participating sites, but once there, they offer a single point of control for the circuit behaviour, making the system easier to understand and debug.
 
 Figure~\ref{fig:proposed-solution-detail} shows more detail of the workflow involved. PhEDEx (or some other experiment middleware) requests an NSI circuit, which is established between the sites border routers. Meanwhile, the wrapper script is constantly informing the OpenFlow controller of the set of files being transfered at any point in time. This is all the OpenFlow controller needs to know when to establish a level-3 circuit from the data-server to the border router and over the level-2 circuit to the destination.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Given that PhEDEx itself is essentially a steering component, using underlying transfer tools such as FTS and FDT to manage the actual transfers, 

@@ -1,4 +1,6 @@
 \section{Conclusions}
 
-blah blah blah
-waffle waffle waffle
+PhEDEx has successfully managed large-scale data-transfers for CMS for over 10 years now, and continues to be a workhorse of the experiments' operations model. Despite this, the design decisions of a decade ago are no longer true, and are a handicap to future optimisation and enhancement of the way CMS transfers data. PhEDEx must evolve if it is to continue to satisfy the needs of CMS during Run-3 and beyond.
+The ANSE project has been working with PhEDEx for some time now, and has made major progress in bringing network awareness to it. A proof-of-concept prototype has been built which shows that PhEDEx can cleanly exploit level-3 circuits, switching to take advantage of them when they exist, switching back to using the general purpose network when they go away, with no degradation in transfer quality.
+From this prototype, a refactored, production-ready version has been built. This is not PhEDEx-specfic, nor even CMS-specific or HEP-specific, and can be used to bridge the gap between experiment middleware and a network that supports level-2 or level-3 circuits.
+To fully exploit level-2 circuits, more work must be done. We have identified a candidate solution which, we believe, is practical and implementable with reasonable effort.
