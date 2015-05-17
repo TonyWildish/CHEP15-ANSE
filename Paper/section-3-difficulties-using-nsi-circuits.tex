@@ -1,4 +1,11 @@
-\section{Layer 2 vs. Layer 3 circuits}
+\section{Difficulties using NSI circuits}
+
+\subsection{Circuit extend and capability}
+NSI circuits do not extend all the way to the storage nodes of a site, they stop at the border router. This leaves the classic 'last mile' problem of maintaining performance end-to-end in any given transfer.
+
+NSI is also not widely adopted yet, and availability as a production service is limited. However, it is supported by a lot of large network providers, so availability is expected to grow over time.
+
+\subsection{Layer 2 vs. Layer 3 circuits}
 
 There is one major difference between the circuits provided by DYNES and the circuits provided by NSI that poses a serious problem for our use of circuits in PhEDEx. DYNES provides layer-3 circuits, i.e. circuits at the IP level. NSI only provides layer-2 circuits, at the ethernet level.
 
