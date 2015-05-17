@@ -1,7 +1,9 @@
 \section{Difficulties using NSI circuits}
 
-\subsection{Circuit extend and capability}
+\subsection{Circuit extent and capability}
 NSI circuits do not extend all the way to the storage nodes of a site, they stop at the border router. This leaves the classic 'last mile' problem of maintaining performance end-to-end in any given transfer.
+
+NSI does not necessarily provide bandwidth guarantees. This is not a show-stopper in itself, but it does greatly limit the value of the circuit. Even a soft guarantee (e.g. time-averaged performance) would be acceptable\cite{BW_sharing}, but the total lack of guarantee in some situations is a serious limitation which we hope the network providers will address in the near future.
 
 NSI is also not widely adopted yet, and availability as a production service is limited. However, it is supported by a lot of large network providers, so availability is expected to grow over time.
 
@@ -9,6 +11,7 @@ NSI is also not widely adopted yet, and availability as a production service is 
 
 There is one major difference between the circuits provided by DYNES and the circuits provided by NSI that poses a serious problem for our use of circuits in PhEDEx. DYNES provides layer-3 circuits, i.e. circuits at the IP level. NSI only provides layer-2 circuits, at the ethernet level.
 
-This is a problem because PhEDEx is high-level middleware, and knows only about source and destination hostnames and port numbers. It knows nothing about low-level details of the network such as ethernet addresses or anything to do with the topology of the network, it merely calls a transfer-layer tool (such as FTS\cite{FTS} or FDT\cite{FDT}) to handle the actual transfer. These tools take their input in the form of a SURL (a 'Storage URL') which specifies the host, port, protocol and local pathname on that host to access the file. PhEDEx is able to switch between different layer-3, IP-based circuits by changing the hostname (or IP address) that it uses in the SURL, the rest happens transparently.
+This is a problem because PhEDEx is high-level middleware, and knows only about source and destination hostnames and port numbers. It knows nothing about low-level details of the network such as ethernet addresses or anything to do with the topology of the network, it merely calls a transfer-layer tool (such as FTS\cite{FTS} or FDT\cite{FDT}) to handle the actual transfer. These tools take their input in the form of a SURL (a `Storage URL') which specifies the host, port, protocol and local pathname on that host to access the file. PhEDEx is able to switch between different layer-3, IP-based circuits by changing the hostname (or IP address) that it uses in the SURL, the rest happens transparently.
 
-Because NSI doesn't provide layer-3 circuits, this mechanism cannot work, and we need another approach.
+Because NSI doesn't provide layer-3 circuits, this mechanism is insufficient in itself, we need to create a layer-3 circuit on top of the layer-2 circuit. Unfortunately, this requires priviledged access to the sites' networking infrastructure.
+
